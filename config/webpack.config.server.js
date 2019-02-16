@@ -10,7 +10,6 @@ module.exports = () => ({
 	externals: [nodeExternals()],
 	entry: "./config/index.js",
 	devtool: "source-map",
-	mode: process.env.NODE_ENV,
 	output: {
 		filename: "[name]-bundle.js",
 		chunkFilename: "[name].chunk.js",
