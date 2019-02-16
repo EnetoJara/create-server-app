@@ -1,4 +1,4 @@
-import { isAlpha, isEmail, isLength, isEmpty } from "validator";
+import { isEmail, isLength, isEmpty } from "validator";
 import { isNumber } from "util";
 
 export const validateSignin = (user) => {
