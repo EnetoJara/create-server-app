@@ -5,7 +5,9 @@ import compress from "compression";
 import cors from "cors";
 import helmet from "helmet";
 
-import indexRoutes from "./routes/indexRoutes";
+import indexRoutes from "./routes/index.routes";
+import authRoutes from "./routes/auth.routes";
+import userRoutes from "./routes/user.routes";
 
 export default function () {
 	const app = new express();
@@ -17,6 +19,7 @@ export default function () {
 	app.use(cors());
 
 	app.use(indexRoutes);
-
+	app.use("/api/auth", authRoutes);
+	app.use("/api/users", userRoutes);
 	return app;
 }

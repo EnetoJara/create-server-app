@@ -11,6 +11,7 @@
 		]
 	],
 	"plugins": [
+		["@babel/plugin-transform-arrow-functions"],
 		["@babel/plugin-proposal-async-generator-functions"],
 		["transform-inline-environment-variables"],
 		["@babel/plugin-proposal-export-default-from"],
@@ -18,7 +19,6 @@
 		["@babel/plugin-syntax-dynamic-import"],
 		["@babel/plugin-proposal-class-properties"],
 		["@babel/plugin-transform-object-super"],
-		["@babel/plugin-transform-arrow-functions"],
 		["babel-plugin-minify-builtins"],
 		["babel-plugin-syntax-async-functions"],
 		["@babel/transform-runtime"],
