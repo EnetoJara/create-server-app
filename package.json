@@ -6,7 +6,10 @@
 	"main": "./src/index.js",
 	"scripts": {
 		"test": "test",
-		"start": "nodemon"
+		"start": "nodemon",
+		"build:dev": "NODE_ENV=development webpack --mode=development --config=config/webpack.config.server.js",
+		"build:QA": "NODE_ENV=QA webpack --mode=production --config=config/webpack.config.server.js",
+		"build": "NODE_ENV=production webpack --mode=production --config=config/webpack.config.server.js"
 	},
 	"keywords": [
 		"NodeJS",
