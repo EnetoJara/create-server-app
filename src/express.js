@@ -21,5 +21,11 @@ export default function () {
 	app.use(indexRoutes);
 	app.use("/api/auth", authRoutes);
 	app.use("/api/users", userRoutes);
+
+	app.use((err, req, res) => {
+		if (err.name === "UnauthorizedError") {
+			res.status(401).json({ error: err.name + ": " + err.message, });
+		}
+	});
 	return app;
 }

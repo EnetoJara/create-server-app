@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
+import expressJwt from "express-jwt";
 
 import User from "../models/user.model";
-import config from "./../../config/config";
+import config from "../../config/config";
 import { validateSignin } from "../utils/user.validator";
 
 export async function signin (req, res) {
@@ -34,4 +35,24 @@ export async function signin (req, res) {
 			error: e,
 		});
 	}
+}
+
+export function signout (req, res) {
+	res.clearCookie("t");
+	return res.status("200").json({
+		message: "signed out",
+	});
+}
+
+export const requireSignin = expressJwt({
+	secret: config.jwtSecret,
+	userProperty: "auth",
+});
+export function hasAuthorization (req, res, next) {
+	const authorized =
+		req.profile && req.auth && req.profile._id === req.auth._id;
+	if (!authorized) {
+		return res.status(403).json({ error: "User not authorized", });
+	}
+	next();
 }
