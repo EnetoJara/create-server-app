@@ -5,6 +5,13 @@ import User from "../models/user.model";
 import config from "../../config/config";
 import { validateSignin } from "../utils/user.validator";
 
+/**
+ * grand access
+ * @public
+ * @export
+ * @path {POST} /api/signin
+ * @Request {Request} req HttpRequest object
+ */
 export async function signin (req, res) {
 	const credentials = { ...req.body, };
 	const isValid = validateSignin(credentials);
