@@ -11,9 +11,6 @@ import { validateSignin } from "../utils/user.validator";
  * @export
  * @path {POST} /api/signin
  * @Request {Request} req HttpRequest object
- * @body {String} email user email
- * @body {String} password user email
- * @param {Response} res HttpResponse object
  */
 export async function signin (req, res) {
 	const credentials = { ...req.body, };
