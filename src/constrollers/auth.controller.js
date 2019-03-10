@@ -14,9 +14,6 @@ import { validateSignin } from "../utils/user.validator";
  * @body {String} email user email
  * @body {String} password user email
  * @param {Response} res HttpResponse object
- * @code {200} if the request is successful
- * @code {500} if the request fail because the database isn't accesible
- * @returns {string} Token
  */
 export async function signin (req, res) {
 	const credentials = { ...req.body, };
