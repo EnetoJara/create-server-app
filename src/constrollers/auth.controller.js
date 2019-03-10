@@ -50,14 +50,6 @@ export async function signin (req, res) {
 	}
 }
 
-/**
- *
- *
- * @export
- * @param {Request} req
- * @param {Response} res
- *
- */
 export function signout (req, res) {
 	res.clearCookie("t");
 	return res.status("200").json({
