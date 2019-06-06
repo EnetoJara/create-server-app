@@ -8,7 +8,7 @@ module.exports = () => ({
 		__dirname: false,
 	},
 	externals: [nodeExternals()],
-	entry: "./config/index.js",
+	entry: "./src/index.js",
 	devtool: "source-map",
 	output: {
 		filename: "[name]-bundle.js",
