@@ -1,5 +1,5 @@
 {
 	"verbose": false,
 	"watch": ["./src"],
-	"exec": "webpack --mode=development --config=config/webpack.config.server.js && node --inspect ./dist/main-bundle.js"
+	"exec": "webpack --mode=development --config=config/webpack.config.server.js && CLIENT_SECRET=Lpr1KmT81hzGA4STJ3fydJPN ID_CLIENT=372136403989-fm1o0pr9qfka8eg6po321s611ebeeja4.apps.googleusercontent.com node --inspect ./dist/main-bundle.js"
 }

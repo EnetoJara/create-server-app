@@ -1,34 +1,42 @@
-const path = require("path");
-const nodeExternals = require("webpack-node-externals");
-const DashboardPlugin = require("webpack-dashboard/plugin");
+const path = require('path');
+const nodeExternals = require('webpack-node-externals');
+
+
+const { NODE_ENV } = process.env;
+
+const entry =
+	NODE_ENV === 'development'
+		? './server/index-dev.js'
+		: './server/index-prod.js';
+
 module.exports = () => ({
-	target: "node",
+	target: 'node',
 	node: {
 		__filename: false,
-		__dirname: false,
+		__dirname: false
 	},
 	externals: [nodeExternals()],
-	entry: "./src/index.js",
-	devtool: "source-map",
+	entry: entry,
+	devtool: 'source-map',
 	output: {
-		filename: "[name]-bundle.js",
-		chunkFilename: "[name].chunk.js",
-		path: path.resolve(__dirname, "../dist"),
-		publicPath: "/",
-		libraryTarget: "commonjs2",
+		filename: '[name]-bundle.js',
+		chunkFilename: '[name].chunk.js',
+		path: path.resolve(__dirname, '../dist'),
+		publicPath: '/',
+		libraryTarget: 'commonjs2'
 	},
 	optimization: {
 		splitChunks: {
-			automaticNameDelimiter: "_",
+			automaticNameDelimiter: '_',
 			cacheGroups: {
 				vendor: {
-					name: "vendor",
+					name: 'vendor',
 					test: /[\\/]node_modules[\\/]/,
-					chunks: "initial",
-					minChunks: 2,
-				},
-			},
-		},
+					chunks: 'initial',
+					minChunks: 2
+				}
+			}
+		}
 	},
 	module: {
 		rules: [
@@ -37,19 +45,19 @@ module.exports = () => ({
 				exclude: /node_modules/,
 				use: [
 					{
-						loader: "babel-loader",
+						loader: 'babel-loader'
 					}
-				],
+				]
 			},
 			{
 				test: /\.(png|jpg|gif)$/,
 				use: [
 					{
-						loader: "file-loader",
+						loader: 'file-loader'
 					}
-				],
+				]
 			}
-		],
+		]
 	},
-	plugins: [new DashboardPlugin()],
+	plugins: []
 });

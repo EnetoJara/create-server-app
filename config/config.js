@@ -1,14 +1,29 @@
-const config = {
-	env: process.env.NODE_ENV || "development",
-	port: process.env.PORT || 3000,
-	jwtSecret: process.env.JWT_SECRET || "obvi_this_IsNotTher3alkey",
-	mongoUri:
-		process.env.MONGODB_URI ||
-		process.env.MONGO_HOST ||
-		"mongodb://" +
-			(process.env.IP || "localhost") +
-			":" +
-			(process.env.MONGO_PORT || "27017") +
-			"/create-server-app",
-};
-export default config;
+export default (function() {
+	const {
+		NODE_ENV,
+		PORT,
+		JWT_SECRET,
+		MONGODB_URI,
+		MONGO_HOST,
+		IP,
+		MONGO_PORT,
+		CLIENT_SECRET,
+		CLIENT_ID
+	} = process.env;
+
+	return {
+		clientSecret: CLIENT_SECRET || null,
+		clientId: CLIENT_ID || null,
+		env: NODE_ENV || 'development',
+		port: PORT || 3000,
+		jwtSecret: JWT_SECRET || 'obvi_this_IsNotTher3alkey',
+		mongoUri:
+			MONGODB_URI ||
+			MONGO_HOST ||
+			'mongodb://' +
+				(IP || 'localhost') +
+				':' +
+				(MONGO_PORT || '27017') +
+				'/create-server-app'
+	};
+})();
