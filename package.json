@@ -140,7 +140,7 @@
 		"postcss-safe-parser": "4.0.1",
 		"prettier": "1.17.1",
 		"react-app-polyfill": "1.0.1",
-		"react-dev-utils": "9.0.1",
+		"react-dev-utils": "11.0.4",
 		"react-hot-loader": "4.9.0",
 		"react-test-renderer": "16.8.6",
 		"redux-devtools-extension": "2.13.8",
